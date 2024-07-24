@@ -52,7 +52,7 @@ export default function Home() {
                     <div className="container">
                     {
                         postsData && postsData.map(x => (
-                            <Link className="post-item">
+                            <Link key={x.post_id} className="post-item">
                                 <div className="post-item-image">
                                     <img src={x.post_image} alt="" />
                                     <div className="post-opacity">
