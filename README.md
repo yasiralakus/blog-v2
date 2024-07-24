@@ -1,0 +1,1 @@
+# first commit: Router, Supabase ve Netlify kuruldu. Proje temeli hazırlandı.
