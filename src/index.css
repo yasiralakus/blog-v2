@@ -394,13 +394,18 @@ p, h1, h2, h3, h4, h5, h6 {
     > p {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 16px;
         color: #FFF;
         letter-spacing: 1px;
         > span {
             width: 50px;
             height: 2px;
             background-color: #FFF;
+        }
+        > a {
+            color: #FFF;
+            letter-spacing: 2px;
+            text-decoration: underline;
         }
     }
 }
@@ -427,7 +432,7 @@ p, h1, h2, h3, h4, h5, h6 {
     background-color: #171717;
     border-radius: 16px;
     display: flex;
-    gap: 16px;
+    gap: 32px;
     > img {
         width: 150px;
         height: 150px;
@@ -442,24 +447,25 @@ p, h1, h2, h3, h4, h5, h6 {
     gap: 8px;
     justify-content: center;
     > h3 {
-        font-size: 22px;
+        font-size: 20px;
         color: #FFF;
         font-weight: 500;
         letter-spacing: 1px;
+        > a {
+            color: #FFF;
+            letter-spacing: 1px;
+        }
+        > a:hover {
+            text-decoration: underline;
+        }
     }
     > p {
         color: #FFF;
         line-height: 1.2;
         letter-spacing: 1px;
+        
     }
-    > a {
-        color: #FFF;
-        opacity: 0.5;
-        letter-spacing: 1px;
-    }
-    > a:hover {
-        text-decoration: underline;
-    }
+    
 }
 
 .writer-socials-links {

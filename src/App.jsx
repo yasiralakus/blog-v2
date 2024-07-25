@@ -70,7 +70,7 @@ export default function App() {
                         <li><Link>Gönderiler <i className="fa-solid fa-angle-down"></i>
                         <ul>
                             <li><Link>Beğenilenler</Link></li>
-                            <li><Link>Kaydedilenler</Link></li>
+                            <li><Link to={'/kaydedilenler'}>Kaydedilenler</Link></li>
                         </ul>
                         </Link></li>
                         <li><Link>Kategoriler <i className="fa-solid fa-angle-down"></i>

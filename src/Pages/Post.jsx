@@ -18,6 +18,7 @@ export default function Post() {
     const [totalLike, setTotalLike] = useState(null);
     const [postComments, setPostComments] = useState(null);
     const [allUserData, setAllUserData] = useState(null);
+    const [isSave, setIsSave] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
@@ -70,6 +71,14 @@ export default function Post() {
                 .order('created_at', { ascending: false });
 
                 setPostComments(comments ? comments : null)
+
+            let { data: saves } = await supabase
+                .from('saves')
+                .select('*')
+                .eq('user_id', user?.id)
+                .eq('post_id', params?.post_id)
+
+                setIsSave(saves && saves.length > 0 ? true : false);
             
         }
         fetchData();
@@ -145,6 +154,34 @@ export default function Post() {
         }
     }
 
+    async function handleSave(e) {
+
+        if(isSave) {
+            
+            const { error } = await supabase
+                .from('saves')
+                .delete()
+                .eq('post_id', params?.post_id)
+                .eq('user_id', user?.user_id)
+
+                setIsSave(false);
+
+        } else {
+            
+            const { data, error } = await supabase
+                .from('saves')
+                .insert([
+                    {
+                        post_id: params?.post_id
+                    }
+                ])
+                .select()
+
+                setIsSave(true);
+
+        }
+    }
+
     return (
         <div className="post-page">
 
@@ -157,7 +194,7 @@ export default function Post() {
 
                             <h3>{postData?.created_at?.slice(8,10)}.{postData?.created_at?.slice(5,7)}.{postData?.created_at?.slice(0,4)}</h3>
                             <h1>{postData?.title}</h1>
-                            <p><span></span>{postData?.category}</p>
+                            <p><span></span><Link to={`/kategori/${postData?.category}`}>{postData?.category}</Link></p>
 
                         </div>
 
@@ -175,8 +212,8 @@ export default function Post() {
 
                             <div className="writer-text">
 
-                                <h3>{profileData?.fullname}</h3>
-                                <Link to={`/profil/${profileData?.username}`}>@{profileData?.username}</Link>
+                                <h3>{profileData?.fullname} / <Link to={`/profil/${profileData?.username}`}>@{profileData?.username}</Link></h3>
+                                
                                 <p>{profileData?.biography}</p>
                                 <div className="writer-socials-links">
                                     <Link><i className="fa-brands fa-facebook-f"></i></Link>
@@ -204,12 +241,19 @@ export default function Post() {
                                     }
                                     {totalLike && totalLike}
                                 </button>
-                                <button><i className="fa-regular fa-bookmark"></i></button>
+                                <button onClick={handleSave}>
+                                    {
+                                        isSave ?
+                                        <i className="fa-solid fa-bookmark"></i>
+                                        :
+                                        <i className="fa-regular fa-bookmark"></i>
+                                    }
+                                </button>
                                 <button><i className="fa-solid fa-share"></i></button>
 
                             </div>
                             :
-                            <p className="warning">Beğenmek ve kaydetmek için <Link>giriş yap</Link>malısınız.</p>
+                            <p className="warning">Beğenmek ve kaydetmek için <Link to={'/giris-yap'}>giriş yap</Link>malısınız.</p>
                         }
 
                         <div className="post-comments">
@@ -251,7 +295,7 @@ export default function Post() {
                                 </form>
                             </div>
                             :
-                            <p className="warning">Yorum yapmak için <Link>giriş yap</Link>malısınız.</p>
+                            <p className="warning">Yorum yapmak için <Link to={'/giris-yap'}>giriş yap</Link>malısınız.</p>
                         }
                     </>
 
