@@ -52,12 +52,12 @@ export default function Home() {
                     <div className="container">
                     {
                         postsData && postsData.map(x => (
-                            <Link key={x.post_id} className="post-item">
+                            <Link to={`/${x.username}/post/${x.post_id}`} key={x.post_id} className="post-item">
                                 <div className="post-item-image">
                                     <img src={x.post_image} alt="" />
                                     <div className="post-opacity">
                                         <p><i className="fa-solid fa-hashtag"></i><Link>{x.category}</Link></p>
-                                        <p><i className="fa-solid fa-user"></i><Link>{profilesData.map(y => y.user_id === x.user_id && y.username)}</Link></p>
+                                        <p><i className="fa-solid fa-user"></i><Link>{x.username}</Link></p>
                                         
                                     </div>
                                 </div>

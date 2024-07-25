@@ -28,6 +28,10 @@ export default function App() {
     }, [])
 
     useEffect(() => {
+        window.scrollTo(0,0)
+    }, [location.pathname])
+
+    useEffect(() => {
         setBigLoading(true);
         const timer = setTimeout(() => {
             setBigLoading(false);
