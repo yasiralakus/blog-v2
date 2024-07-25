@@ -17,6 +17,8 @@ export default function Home() {
             let { data: posts, error } = await supabase
                 .from('posts')
                 .select('*')
+                .order('created_at', { ascending: false });
+                
                 setPostsData(posts);
 
             let { data: profiles } = await supabase
@@ -56,8 +58,8 @@ export default function Home() {
                                 <div className="post-item-image">
                                     <img src={x.post_image} alt="" />
                                     <div className="post-opacity">
-                                        <p><i className="fa-solid fa-hashtag"></i><Link>{x.category}</Link></p>
-                                        <p><i className="fa-solid fa-user"></i><Link>{x.username}</Link></p>
+                                        <p><i className="fa-solid fa-hashtag"></i><Link to={`/kategori/${x.category}`}>{x.category}</Link></p>
+                                        <p><i className="fa-solid fa-user"></i><Link to={`/profil/${x.username}`}>{x.username}</Link></p>
                                         
                                     </div>
                                 </div>

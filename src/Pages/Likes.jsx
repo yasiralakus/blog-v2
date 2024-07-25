@@ -3,7 +3,7 @@ import { UserContext } from "../App"
 import { supabase } from "../main";
 import { BeatLoader } from "react-spinners";
 import { Link } from "react-router-dom";
-export default function Saves() {
+export default function Likes() {
 
     const {user, setUser} = useContext(UserContext);
     const [postsData, setPostsData] = useState(null);
@@ -13,15 +13,15 @@ export default function Saves() {
         async function fetchData() {
 
             setLoading(true)
-            let { data: saves, error } = await supabase
-                .from('saves')
+            let { data: likes, error } = await supabase
+                .from('likes')
                 .select('*')
                 .eq('user_id', user?.user_id)
 
             let { data: posts } = await supabase
             .from('posts')
             .select('*')
-            .in('post_id', saves && saves.map(x => x.post_id))
+            .in('post_id', likes && likes.map(x => x.post_id))
             .order('created_at', { ascending: false });
 
             setPostsData(posts);
@@ -51,8 +51,8 @@ export default function Saves() {
                                 <div className="post-item-image">
                                     <img src={x.post_image} alt="" />
                                     <div className="post-opacity">
-                                        <p><i className="fa-solid fa-hashtag"></i><Link to={`/kategori/${x.category}`}>{x.category}</Link></p>
-                                        <p><i className="fa-solid fa-user"></i><Link to={`/profil/${x.username}`}>{x.username}</Link></p>
+                                    <p><i className="fa-solid fa-hashtag"></i><Link to={`/kategori/${x.category}`}>{x.category}</Link></p>
+                                    <p><i className="fa-solid fa-user"></i><Link to={`/profil/${x.username}`}>{x.username}</Link></p>
                                         
                                     </div>
                                 </div>
@@ -60,13 +60,13 @@ export default function Saves() {
                             </Link>
                         ))
                         :
-                        <p className="warning">Kaydedilmiş bir gönderi bulunamadı!</p>
+                        <p className="warning">Beğenilmiş bir gönderi bulunamadı!</p>
                     }
                     </div>
                 </div>
                 :
                 <div style={{display: 'flex'}} className="container">
-                    <p className="warning">Kaydedilmiş gönderileri görmek için <Link>giriş yap</Link>malısınız!</p>
+                    <p className="warning">Beğenilmiş gönderileri görmek için <Link>giriş yap</Link>malısınız!</p>
                 </div>
             }
 

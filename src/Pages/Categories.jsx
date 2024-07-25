@@ -1,11 +1,17 @@
-import { useContext, useEffect, useState } from "react"
-import { UserContext } from "../App"
+import { useEffect, useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
 import { supabase } from "../main";
 import { BeatLoader } from "react-spinners";
-import { Link } from "react-router-dom";
-export default function Saves() {
 
-    const {user, setUser} = useContext(UserContext);
+export async function loader({params}) {
+
+    return params;
+}
+
+export default function Categories() {
+
+    const params = useLoaderData();
+
     const [postsData, setPostsData] = useState(null);
     const [loading, setLoading] = useState(true)
 
@@ -13,31 +19,25 @@ export default function Saves() {
         async function fetchData() {
 
             setLoading(true)
-            let { data: saves, error } = await supabase
-                .from('saves')
+            
+            let { data: posts, error } = await supabase
+                .from('posts')
                 .select('*')
-                .eq('user_id', user?.user_id)
+                .eq('category', params?.category)
+                .order('created_at', { ascending: false });
+                
+                setPostsData(posts)
 
-            let { data: posts } = await supabase
-            .from('posts')
-            .select('*')
-            .in('post_id', saves && saves.map(x => x.post_id))
-            .order('created_at', { ascending: false });
-
-            setPostsData(posts);
             setLoading(false)
-
 
         }
         fetchData();
-
     }, [])
 
     return (
         <div className="posts">
 
             {
-                user ?
                 loading ?
                 <div className="loading">
                     <BeatLoader color="#fff" />
@@ -51,8 +51,8 @@ export default function Saves() {
                                 <div className="post-item-image">
                                     <img src={x.post_image} alt="" />
                                     <div className="post-opacity">
-                                        <p><i className="fa-solid fa-hashtag"></i><Link to={`/kategori/${x.category}`}>{x.category}</Link></p>
-                                        <p><i className="fa-solid fa-user"></i><Link to={`/profil/${x.username}`}>{x.username}</Link></p>
+                                        <p><i className="fa-solid fa-hashtag"></i><Link>{x.category}</Link></p>
+                                        <p><i className="fa-solid fa-user"></i><Link>{x.username}</Link></p>
                                         
                                     </div>
                                 </div>
@@ -63,10 +63,6 @@ export default function Saves() {
                         <p className="warning">Kaydedilmiş bir gönderi bulunamadı!</p>
                     }
                     </div>
-                </div>
-                :
-                <div style={{display: 'flex'}} className="container">
-                    <p className="warning">Kaydedilmiş gönderileri görmek için <Link>giriş yap</Link>malısınız!</p>
                 </div>
             }
 

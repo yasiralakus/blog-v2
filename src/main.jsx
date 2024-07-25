@@ -8,6 +8,8 @@ import { createClient } from '@supabase/supabase-js'
 import Authentication from './Pages/Authentication.jsx'
 import Post, { loader as loaderPost } from './Pages/Post.jsx'
 import Saves from './Pages/Saves.jsx'
+import Likes from './Pages/Likes.jsx'
+import Categories, { loader as loaderCategories } from './Pages/Categories.jsx'
 
 export const supabase = createClient('https://epmupsogvmdpvxmkzrdr.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwbXVwc29ndm1kcHZ4bWt6cmRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE4MjExNTcsImV4cCI6MjAzNzM5NzE1N30.BaG_CbE8PbytkgFLs73jDAM2xQICSA09Ycc5d51vlC0')
 
@@ -32,6 +34,15 @@ const router = createBrowserRouter([
             {
                 path: '/kaydedilenler',
                 element: <Saves />,
+            },
+            {
+                path: '/begenilenler',
+                element: <Likes />,
+            },
+            {
+                path: '/kategori/:category',
+                element: <Categories />,
+                loader: loaderCategories
             },
         ]
     }

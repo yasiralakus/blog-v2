@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { supabase } from "../main";
 import { UserContext } from "../App";
 
@@ -19,6 +19,8 @@ export default function Post() {
     const [postComments, setPostComments] = useState(null);
     const [allUserData, setAllUserData] = useState(null);
     const [isSave, setIsSave] = useState(null);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchData() {
@@ -182,6 +184,23 @@ export default function Post() {
         }
     }
 
+    async function deletePost(e) {
+        e.preventDefault();
+
+        const confirmDelete = window.confirm("Gönderiyi silmek istediğinizden emin misiniz?");
+
+        if(confirmDelete === true) {
+            
+            const { error } = await supabase
+                .from('posts')
+                .delete()
+                .eq('post_id', postData?.post_id)
+
+                navigate('/');
+        }
+
+    }
+
     return (
         <div className="post-page">
 
@@ -192,7 +211,12 @@ export default function Post() {
                     <>
                         <div className="post-page-header">
 
-                            <h3>{postData?.created_at?.slice(8,10)}.{postData?.created_at?.slice(5,7)}.{postData?.created_at?.slice(0,4)}</h3>
+                            <h3>{postData?.created_at?.slice(8,10)}.{postData?.created_at?.slice(5,7)}.{postData?.created_at?.slice(0,4)}
+                                {
+                                    user && user?.username === params?.username &&
+                                    <button onClick={deletePost}><i className="fa-solid fa-trash-can"></i></button>
+                                }
+                            </h3>
                             <h1>{postData?.title}</h1>
                             <p><span></span><Link to={`/kategori/${postData?.category}`}>{postData?.category}</Link></p>
 

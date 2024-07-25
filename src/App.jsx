@@ -69,18 +69,19 @@ export default function App() {
                         <li><Link>Anasayfa</Link></li>
                         <li><Link>Gönderiler <i className="fa-solid fa-angle-down"></i>
                         <ul>
-                            <li><Link>Beğenilenler</Link></li>
+                            <li><Link to={'/begenilenler'}>Beğenilenler</Link></li>
                             <li><Link to={'/kaydedilenler'}>Kaydedilenler</Link></li>
                         </ul>
                         </Link></li>
                         <li><Link>Kategoriler <i className="fa-solid fa-angle-down"></i>
                         <ul>
-                            <li><Link>Siyaset</Link></li>
-                            <li><Link>Ekonomi</Link></li>
-                            <li><Link>Sinema</Link></li>
-                            <li><Link>Spor</Link></li>
-                            <li><Link>Yemek</Link></li>
-                            <li><Link>Seyahat</Link></li>
+                            <li><Link to={'/kategori/siyaset'}>Siyaset</Link></li>
+                            <li><Link to={'/kategori/ekonomi'}>Ekonomi</Link></li>
+                            <li><Link to={'/kategori/sinema'}>Sinema</Link></li>
+                            <li><Link to={'/kategori/spor'}>Spor</Link></li>
+                            <li><Link to={'/kategori/yemek'}>Yemek</Link></li>
+                            <li><Link to={'/kategori/seyahat'}>Seyahat</Link></li>
+                            <li><Link to={'/kategori/teknoloji'}>Teknoloji</Link></li>
                         </ul>
                         </Link></li>
                         <li><Link>Yeni Gönderi</Link></li>
