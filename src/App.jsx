@@ -84,7 +84,7 @@ export default function App() {
                             <li><Link to={'/kategori/teknoloji'}>Teknoloji</Link></li>
                         </ul>
                         </Link></li>
-                        <li><Link>Yeni Gönderi</Link></li>
+                        <li><Link to={'/yeni-gonderi'}>Yeni Gönderi</Link></li>
                     </ul>
 
                     {

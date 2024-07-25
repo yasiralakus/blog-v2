@@ -311,7 +311,7 @@ export default function Post() {
 
                         {
                             user ?
-                            <div className="add-post">
+                            <div className="add-comment">
                                 <h3>YORUM YAP</h3>
                                 <form onSubmit={handleAddComment}>
                                     <textarea name="comment" rows={8} required ></textarea>

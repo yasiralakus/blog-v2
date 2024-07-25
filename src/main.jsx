@@ -10,6 +10,7 @@ import Post, { loader as loaderPost } from './Pages/Post.jsx'
 import Saves from './Pages/Saves.jsx'
 import Likes from './Pages/Likes.jsx'
 import Categories, { loader as loaderCategories } from './Pages/Categories.jsx'
+import NewPost from './Pages/NewPost.jsx'
 
 export const supabase = createClient('https://epmupsogvmdpvxmkzrdr.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwbXVwc29ndm1kcHZ4bWt6cmRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE4MjExNTcsImV4cCI6MjAzNzM5NzE1N30.BaG_CbE8PbytkgFLs73jDAM2xQICSA09Ycc5d51vlC0')
 
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
                 element: <Categories />,
                 loader: loaderCategories
             },
+            {
+                path: '/yeni-gonderi',
+                element: <NewPost />
+            }
         ]
     }
 ])
