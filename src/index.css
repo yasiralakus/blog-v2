@@ -792,6 +792,53 @@ p, h1, h2, h3, h4, h5, h6 {
     }
 }
 
-
-
 /* PROFILE PAGE CSS END */
+
+/* EDIT PAGE CSS START */
+
+.edit-page {
+    > .container {
+        > form {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            > div {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                > p {
+                    font-size: 16px;
+                    color: #FFF;
+                    line-height: 1;
+                    letter-spacing: 1px;
+                }
+                > input,textarea, select {
+                    border: none;
+                    outline: none;
+                    width: 100%;
+                    padding: 12px;
+                    color: #FFF;
+                    letter-spacing: 1px;
+                    background-color: #171717;
+                }
+            }
+            > button {
+                border: 2px solid #171717;
+                outline: none;
+                width: 100%;
+                padding: 12px;
+                color: #FFF;
+                letter-spacing: 1px;
+                background-color: #171717;
+                cursor: pointer;
+                transition: all .3s;
+            }
+            > button:hover {
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+/* EDIT PAGE CSS END */

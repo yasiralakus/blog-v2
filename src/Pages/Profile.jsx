@@ -134,7 +134,7 @@ export default function Profile() {
                             <div className="edit-or-follow">
                                 {
                                     user?.username === profileData?.username ?
-                                    <Link>Düzenle</Link>
+                                    <Link to={`/profil/${user?.username}/duzenle`}>Düzenle</Link>
                                     :
                                     <button onClick={handleFollow}>{isFollowing ? 'Takip Ediliyor' : 'Takip Et'}</button>
                                 }
