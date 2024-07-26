@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { supabase } from "../main";
 import { UserContext } from "../App";
+import ReactMarkdown from 'react-markdown';
 
 export async function loader({params}) {
 
@@ -226,7 +227,7 @@ export default function Post() {
 
                             <img src={postData?.post_image} alt="" />
 
-                            <p>{postData?.text}</p>
+                            <p><ReactMarkdown>{postData?.text}</ReactMarkdown></p>
 
                         </div>
 

@@ -90,7 +90,7 @@ export default function App() {
                     {
                         user ?
                         <div className="user-box">
-                            <Link className="go-profile"><i className="fa-solid fa-user"></i></Link>
+                            <Link to={`/profil/${user?.username}`} className="go-profile"><i className="fa-solid fa-user"></i></Link>
                             <button onClick={handleLogout}>Çıkış Yap</button>
                         </div>
                         :
