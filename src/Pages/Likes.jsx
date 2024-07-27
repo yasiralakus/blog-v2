@@ -13,10 +13,13 @@ export default function Likes() {
         async function fetchData() {
 
             setLoading(true)
+
+            const { data: { user } } = await supabase.auth.getUser()
+
             let { data: likes, error } = await supabase
                 .from('likes')
                 .select('*')
-                .eq('user_id', user?.user_id)
+                .eq('user_id', user?.id)
 
             let { data: posts } = await supabase
             .from('posts')

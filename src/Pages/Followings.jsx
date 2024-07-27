@@ -52,9 +52,9 @@ export default function Followings() {
                 :
             <div className="container">
                 <div className="posts">
-                    <div className="container">
+                    <div style={postsData.length < 1 ? {display: 'flex'} : {}} className="container">
                     {
-                        postsData && postsData.map(x => (
+                        postsData.length > 0 ? postsData.map(x => (
                             <Link to={`/${x.username}/post/${x.post_id}`} key={x.post_id} className="post-item">
                                 <div className="post-item-image">
                                     <img src={x.post_image} alt="" />
@@ -67,6 +67,8 @@ export default function Followings() {
                                 <h3>{x.title}</h3>
                             </Link>
                         ))
+                        :
+                        <p className="warning">Takip ettiğiniz kullanıcı yok veya kullanıcıya ait gönderi yok.</p>
                     }
                     </div>
                 </div>

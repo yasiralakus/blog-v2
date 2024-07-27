@@ -9,6 +9,7 @@
 # ninth commit: Profil düzenleme sayfası hazırlandı.
 # tenth commit: Kullanıcıların takipçilerini gösterme sayfası hazırlandı.
 # eleventh commit: Kayıt olma ve giriş işlem kısıtları eklendi.
+# twelfth commit: Responsive kaba taslak olarak hazırlandı.
 
 # Yayın Linki: https://yasiralakus-blog-v2.netlify.app/
 # NOT: Her commit ile güncelleniyor.

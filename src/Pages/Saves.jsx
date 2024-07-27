@@ -13,10 +13,13 @@ export default function Saves() {
         async function fetchData() {
 
             setLoading(true)
+
+            const { data: { user } } = await supabase.auth.getUser()
+            
             let { data: saves, error } = await supabase
                 .from('saves')
                 .select('*')
-                .eq('user_id', user?.user_id)
+                .eq('user_id', user?.id)
 
             let { data: posts } = await supabase
             .from('posts')
@@ -44,7 +47,7 @@ export default function Saves() {
                 </div>
                 :
                 <div className="posts">
-                    <div className="container">
+                    <div style={postsData?.length < 1 ? {display: 'flex'} : {}} className="container">
                     {
                         postsData.length > 0 ? postsData.map(x => (
                             <Link to={`/${x.username}/post/${x.post_id}`} key={x.post_id} className="post-item">

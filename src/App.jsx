@@ -13,6 +13,8 @@ export default function App() {
     const [openNotification, setOpenNotification] = useState(false);
     const [notification, setNotification] = useState(false);
 
+    const [openMobileNav, setOpenMobileNav] = useState(false);
+
     useEffect(() => {
         async function fetchData() {
             const { data: { user: userData } } = await supabase.auth.getUser();
@@ -64,6 +66,27 @@ export default function App() {
             </div>
 
             {
+                openMobileNav &&
+                <ul className="mobile-nav">
+                    <li><Link to={'/'}>Keşfet</Link></li>
+                    <div className="small-line"></div>
+                    <li><Link to={'/begenilenler'}>Beğenilenler</Link></li>
+                    <li><Link to={'/kaydedilenler'}>Kaydedilenler</Link></li>
+                    <li><Link to={'/takip-edilen-kullanici-gonderileri'}>Takip ettiklerim</Link></li>
+                    <div className="small-line"></div>
+                    <li><Link to={'/kategori/siyaset'}>Siyaset</Link></li>
+                    <li><Link to={'/kategori/ekonomi'}>Ekonomi</Link></li>
+                    <li><Link to={'/kategori/sinema'}>Sinema</Link></li>
+                    <li><Link to={'/kategori/spor'}>Spor</Link></li>
+                    <li><Link to={'/kategori/yemek'}>Yemek</Link></li>
+                    <li><Link to={'/kategori/seyahat'}>Seyahat</Link></li>
+                    <li><Link to={'/kategori/teknoloji'}>Teknoloji</Link></li>
+                    <div className="small-line"></div>
+                    <li><Link to={'/yeni-gonderi'}>Yeni Gönderi</Link></li>
+                </ul>
+            }
+
+            {
                 bigLoading && 
 
                 <div className="big-loading">
@@ -113,6 +136,12 @@ export default function App() {
                             <Link to={'/giris-yap'}>Giriş Yap</Link>
                         </div>
                     }
+
+                    <button onClick={() => (openMobileNav ? setOpenMobileNav(false) : setOpenMobileNav(true))} className="mobile-nav-button">
+                        <span style={openMobileNav ? {transform: 'rotate(45deg) translateX(6px) translateY(3px)'} : {}}></span>
+                        <span style={openMobileNav ? {opacity: '0'} : {}}></span>
+                        <span style={openMobileNav ? {transform: 'rotate(135deg) translateX(-7px) translateY(6px)'} : {}}></span>
+                    </button>
 
                 </div>
 
