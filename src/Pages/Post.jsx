@@ -233,7 +233,7 @@ export default function Post() {
 
                         <div className="writer-details">
 
-                            <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="" />
+                            <img src={profileData?.user_photo} alt="" />
 
                             <div className="writer-text">
 

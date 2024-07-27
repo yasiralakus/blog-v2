@@ -141,8 +141,8 @@ export default function Profile() {
                             </div>
                         }
 
-                        <p>{takipEttiklerimSayi}<Link>Takip edilen</Link></p>
-                        <p>{takipeEdenlerSayi}<Link>Takipçi</Link></p>
+                        <p>{takipEttiklerimSayi}<Link to={`/${profileData?.username}/takipciler`}>Takip edilen</Link></p>
+                        <p>{takipeEdenlerSayi}<Link to={`/${profileData?.username}/takipciler`}>Takipçi</Link></p>
                     </div>
 
                 </div>

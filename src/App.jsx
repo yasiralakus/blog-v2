@@ -66,11 +66,12 @@ export default function App() {
                     <Link className="logo">FİGÜRAN</Link>
                     
                     <ul className="nav">
-                        <li><Link>Anasayfa</Link></li>
+                        <li><Link>Keşfet</Link></li>
                         <li><Link>Gönderiler <i className="fa-solid fa-angle-down"></i>
                         <ul>
                             <li><Link to={'/begenilenler'}>Beğenilenler</Link></li>
                             <li><Link to={'/kaydedilenler'}>Kaydedilenler</Link></li>
+                            <li><Link to={'/takip-edilen-kullanici-gonderileri'}>Takip ettiklerim</Link></li>
                         </ul>
                         </Link></li>
                         <li><Link>Kategoriler <i className="fa-solid fa-angle-down"></i>

@@ -7,6 +7,7 @@
 # seventh commit: Gönderi paylaşma özelliği eklendi.
 # eighth commit: Profil sayfası tasarlandı ve takip etme özelliği eklendi.
 # ninth commit: Profil düzenleme sayfası hazırlandı.
+# tenth commit: Kullanıcıların takipçilerini gösterme sayfası hazırlandı.
 
 # Yayın Linki: https://yasiralakus-blog-v2.netlify.app/
 # NOT: Her commit ile güncelleniyor.

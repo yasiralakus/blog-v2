@@ -13,6 +13,8 @@ import Categories, { loader as loaderCategories } from './Pages/Categories.jsx'
 import NewPost from './Pages/NewPost.jsx'
 import Profile, { laoder as laoderProfile } from './Pages/Profile.jsx'
 import Edit, { loader as loaderEdit } from './Pages/Edit.jsx'
+import Followings from './Pages/Followings.jsx'
+import Followers, { loader as loaderFollowers } from './Pages/Followers.jsx'
 
 export const supabase = createClient('https://epmupsogvmdpvxmkzrdr.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwbXVwc29ndm1kcHZ4bWt6cmRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE4MjExNTcsImV4cCI6MjAzNzM5NzE1N30.BaG_CbE8PbytkgFLs73jDAM2xQICSA09Ycc5d51vlC0')
 
@@ -60,6 +62,15 @@ const router = createBrowserRouter([
                 path: '/profil/:username/duzenle',
                 element: <Edit />,
                 loader: loaderEdit
+            },
+            {
+                path: '/takip-edilen-kullanici-gonderileri',
+                element: <Followings />
+            },
+            {
+                path: '/:username/takipciler',
+                element: <Followers />,
+                loader: loaderFollowers
             }
         ]
     }
