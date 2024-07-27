@@ -11,6 +11,7 @@
 # eleventh commit: Kayıt olma ve giriş işlem kısıtları eklendi.
 # twelfth commit: Responsive kaba taslak olarak hazırlandı.
 # thirteenth commit: Bazı responsive hataları giderildi.
+# fourteenth commit: Bazı responsive hataları giderildi.
 
 # Yayın Linki: https://yasiralakus-blog-v2.netlify.app/
 # NOT: Her commit ile güncelleniyor.

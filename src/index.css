@@ -78,6 +78,7 @@ p, h1, h2, h3, h4, h5, h6 {
     min-height: 100vh;
     background-color: #000;
     position: relative;
+    padding-bottom: 50px;
 }
 
 .notification-box {
@@ -245,10 +246,6 @@ p, h1, h2, h3, h4, h5, h6 {
     line-height: 1;
     font-size: 18px;
 
-}
-
-.footer {
-    height: 500px;
 }
 
 .homepage-video {
@@ -1142,6 +1139,18 @@ p, h1, h2, h3, h4, h5, h6 {
             font-size: 14px;
             width: 125px;
             height: 30px;
+        }
+    }
+
+    .new-post-page {
+        > .container {
+            padding: 32px 16px;
+        }
+    }
+
+    .edit-page {
+        > .container {
+            padding: 32px 16px;
         }
     }
     

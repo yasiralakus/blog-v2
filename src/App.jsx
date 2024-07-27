@@ -31,6 +31,10 @@ export default function App() {
         fetchData();
     }, [])
 
+    async function handleSubscribe(e) {
+        e.preventDefault();
+    }
+
     useEffect(() => {
         window.scrollTo(0,0)
     }, [location.pathname])
@@ -154,10 +158,6 @@ export default function App() {
             <UserContext.Provider value={{user, setUser, setOpenNotification, notification, setNotification}}>
             <Outlet />
             </UserContext.Provider>
-
-            <footer className="footer">
-
-            </footer>
 
         </div>
     )
