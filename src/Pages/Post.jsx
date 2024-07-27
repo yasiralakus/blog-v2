@@ -15,7 +15,7 @@ export default function Post() {
     const [postData, setPostData] = useState(null);
     const [profileData, setProfileData] = useState(null);
     const [isLike, setIsLike] = useState(false);
-    const {user, setUser} = useContext(UserContext);
+    const {user, setUser, setNotification, setOpenNotification} = useContext(UserContext);
     const [totalLike, setTotalLike] = useState(null);
     const [postComments, setPostComments] = useState(null);
     const [allUserData, setAllUserData] = useState(null);
@@ -101,6 +101,9 @@ export default function Post() {
 
                 const updatedComments = postComments.filter(comment => comment.comment_id !== commentId);
                 setPostComments(updatedComments);
+
+                setOpenNotification(true);
+                setNotification('Yorum başaıyla silindi!')
         }
     }
 
@@ -198,6 +201,8 @@ export default function Post() {
                 .eq('post_id', postData?.post_id)
 
                 navigate('/');
+                setOpenNotification(true);
+                setNotification('Gönderi başaıyla silindi!')
         }
 
     }

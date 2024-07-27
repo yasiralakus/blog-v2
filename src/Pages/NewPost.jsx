@@ -5,7 +5,7 @@ import { supabase } from "../main";
 
 export default function NewPost() {
 
-    const {user, setUser} = useContext(UserContext);
+    const {user, setUser, setNotification, setOpenNotification} = useContext(UserContext);
 
     const navigate = useNavigate();
 
@@ -39,6 +39,8 @@ export default function NewPost() {
 
             if(!updateError) {
                 navigate('/');
+                setOpenNotification(true);
+                setNotification('Gönderi paylaşıldı!')
             }
 
     }

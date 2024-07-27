@@ -1153,5 +1153,103 @@ p, h1, h2, h3, h4, h5, h6 {
             padding: 32px 16px;
         }
     }
+
+    .post-page-header {
+        gap: 16px;
+        > h1 {
+            font-size: 32px;
+        }
+        > h3 {
+            font-size: 16px;
+        }
+    }
+
+    .writer-details {
+        padding: 16px;
+        align-items: center;
+        gap: 16px;
+        > img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    .writer-text {
+        > h3 {
+            font-size: 14px;
+        }
+        > p {
+            font-size: 14px;
+        }
+    }
+
+    .writer-socials-links {
+        > a {
+            font-size: 14px;
+        }
+    }
+
+    .post-interaction {
+        gap: 16px;
+        > button {
+            font-size: 16px;
+        }
+    }
+
+    .post-comments {
+        padding: 16px;
+        > h3 {
+            font-size: 26px;
+        }
+    }
+
+    .post-comment-item {
+        > p {
+            font-size: 14px;
+        }
+    }
+
+    .post-comment-item-header {
+        > h3 {
+            font-size: 14px;
+            > a {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .delete-post {
+        font-size: 16px;
+        top: 0;
+    }
+
+    .add-comment {
+        padding: 16px;
+        > h3 {
+            font-size: 26px;
+        }
+        > form {
+            > textarea {
+                font-size: 14px;
+                letter-spacing: 1px;
+            }
+        }
+    }
+
+    .post-page-content {
+        > p {
+            font-size: 14px;
+        }
+    }
+
+    .notification-box {
+        width: 250px;
+        height: 80px;
+        right: -250px;
+        > p {
+            font-size: 14px;
+            font-weight: 400;
+        }
+    }
     
 }
