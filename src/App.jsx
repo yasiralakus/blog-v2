@@ -10,6 +10,8 @@ export default function App() {
     const [user, setUser] = useState(null);
     const [bigLoading, setBigLoading] = useState(true);
     const location = useLocation();
+    const [openNotification, setOpenNotification] = useState(false);
+    const [notification, setNotification] = useState(false);
 
     useEffect(() => {
         async function fetchData() {
@@ -45,9 +47,21 @@ export default function App() {
         setUser(null);
     }
 
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setOpenNotification(false);
+        }, 3000);
+
+        return () => clearTimeout(timeout);
+    }, [openNotification]);
+
 
     return (
         <div className="full-page">
+
+            <div style={openNotification ? {right: '0'} : {}} className="notification-box">
+                <p>{notification}</p>
+            </div>
 
             {
                 bigLoading && 
@@ -104,7 +118,7 @@ export default function App() {
 
             </header>
 
-            <UserContext.Provider value={{user, setUser}}>
+            <UserContext.Provider value={{user, setUser, setOpenNotification, notification, setNotification}}>
             <Outlet />
             </UserContext.Provider>
 
