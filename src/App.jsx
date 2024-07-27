@@ -57,6 +57,10 @@ export default function App() {
         return () => clearTimeout(timeout);
     }, [openNotification]);
 
+    useEffect(() => {
+        setOpenMobileNav(false);
+    }, [location.pathname])
+
 
     return (
         <div className="full-page">

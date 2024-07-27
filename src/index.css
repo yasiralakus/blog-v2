@@ -1094,7 +1094,7 @@ p, h1, h2, h3, h4, h5, h6 {
     }
 
     #profile-bg {
-        height: 120px;
+        height: 150px;
     }
 
     #profile-photo {
@@ -1106,7 +1106,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
     .profile-photos {
         > .container {
-            height: 160px;
+            height: 190px;
         }
     }
 
@@ -1119,8 +1119,21 @@ p, h1, h2, h3, h4, h5, h6 {
                 gap: 8px;
                 > h1 {
                     line-height: 1.5;
+                    font-size: 14px;
+                }
+                > h2 {
+                    font-size: 14px;
+                }
+                > h6 {
+                    font-size: 14px;
                 }
             }
+        }
+    }
+
+    .profile-follow-box {
+        > p {
+            font-size: 14px;
         }
     }
 
