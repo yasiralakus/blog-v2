@@ -14,6 +14,7 @@
 # fourteenth commit: Bazı responsive hataları giderildi.
 # fifteenth commit: Bazı responsive hataları giderildi.
 # sixteenth commit: Bazı özellikler eklendi.
+# seventeenth commit: Bazı özellikler eklendi.
 
 # Yayın Linki: https://yasiralakus-blog-v2.netlify.app/
 # NOT: Her commit ile güncelleniyor.

@@ -11,7 +11,7 @@ export async function loader( {params} ){
 export default function Edit() {
 
     const params = useLoaderData();
-    const {user, setUser} = useContext(UserContext);
+    const {user, setUser, setNotification, setOpenNotification} = useContext(UserContext);
     const [profileData, setProfileData] = useState(null);
     const navigate = useNavigate();
 
@@ -85,6 +85,8 @@ export default function Edit() {
             .select()
 
         navigate(`/profil/${params?.username}`)
+        setNotification('Düzenleme tamamlandı.')
+        setOpenNotification(true);
 
     }
 
