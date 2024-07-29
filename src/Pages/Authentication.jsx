@@ -116,7 +116,6 @@ export default function Authentication() {
                 .from('profiles')
                 .select('*')
                 .eq('user_id', loginData.user.id)
-                console.log(profiles)
 
                 setUser(profiles[0]);
                 navigate('/');

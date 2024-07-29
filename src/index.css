@@ -97,9 +97,9 @@ p, h1, h2, h3, h4, h5, h6 {
     text-align: center;
     > p {
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 500;
         letter-spacing: 1px;
-        line-height: 1.5;
+        line-height: 1.4;
         color: #FFF;
     }
 }
@@ -1144,13 +1144,39 @@ p, h1, h2, h3, h4, h5, h6 {
 
     .new-post-page {
         > .container {
-            padding: 32px 16px;
+            padding: 16px 0;
+            > form {
+                gap: 16px;
+                > div {
+                    > input, textarea, select {
+                        padding: 6px;
+                        font-size: 14px;
+                    }
+                }
+                > button {
+                        padding: 6px;
+                        font-size: 14px;
+                }
+            }
         }
     }
 
     .edit-page {
         > .container {
-            padding: 32px 16px;
+            padding: 16px 0;
+            > form {
+                gap: 16px;
+                > div {
+                    > input, textarea {
+                        padding: 6px;
+                        font-size: 14px;
+                    }
+                }
+                > button {
+                        padding: 6px;
+                        font-size: 14px;
+                }
+            }
         }
     }
 

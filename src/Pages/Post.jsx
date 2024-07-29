@@ -90,7 +90,6 @@ export default function Post() {
     async function handleDelete(commentId) {
 
         const confirmDelete = window.confirm("Yorumu silmek istediğinizden emin misiniz?");
-        console.log(commentId)
 
         if(confirmDelete === true) {
             
@@ -207,6 +206,14 @@ export default function Post() {
 
     }
 
+    async function handleShare(e) {
+        e.preventDefault();
+        const link = window.location.href;
+        await navigator.clipboard.writeText(link);
+        setNotification('Gönderi bağlantısı kopyalandı!');
+        setOpenNotification(true);
+      }
+
     return (
         <div className="post-page">
 
@@ -279,7 +286,7 @@ export default function Post() {
                                         <i className="fa-regular fa-bookmark"></i>
                                     }
                                 </button>
-                                <button><i className="fa-solid fa-share"></i></button>
+                                <button onClick={handleShare}><i className="fa-solid fa-share"></i></button>
 
                             </div>
                             :
